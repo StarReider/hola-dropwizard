@@ -43,6 +43,11 @@
 			<groupId>io.dropwizard</groupId>
 			<artifactId>dropwizard-client</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>
