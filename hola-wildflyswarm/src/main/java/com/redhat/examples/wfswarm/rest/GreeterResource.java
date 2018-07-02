@@ -37,4 +37,12 @@ public class GreeterResource {
 				.queryParam("greeting", saying).request(MediaType.APPLICATION_JSON_TYPE).get(BackendDTO.class);
 		return backendDTO.getGreeting() + " at host: " + backendDTO.getIp();
 	}
+	
+	@Path("/greeting-hystrix")
+    @GET
+    public String greetingHystrix() {
+        BackendCommand command = new BackendCommand(backendServiceHost, backendServicePort).withSaying(saying);
+        BackendDTO backendDTO = command.execute();
+        return backendDTO.getGreeting() + " at host: " + backendDTO.getIp();
+    }
 }

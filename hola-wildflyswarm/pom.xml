@@ -17,7 +17,6 @@
 
 		<fabric8.version>2.2.98</fabric8.version>
 		<hystrix.version>1.5.1</hystrix.version>
-		<ribbon.version>2.1.2</ribbon.version>
 		<kubeflix.version>1.0.15</kubeflix.version>
 
 		<!-- Docker -->
@@ -25,7 +24,6 @@
 		<docker.from>fabric8/java-jboss-openjdk8-jdk:1.0.10</docker.from>
 		<docker.image>fabric8/${project.artifactId}:${project.version}</docker.image>
 		<docker.port.container.http>8080</docker.port.container.http>
-		<docker.port.container.jolokia>8778</docker.port.container.jolokia>
 
 		<!-- Fabric8/Kubernetes/OpenShift -->
 		<fabric8.readinessProbe.httpGet.path>/api/hola</fabric8.readinessProbe.httpGet.path>
@@ -38,8 +36,8 @@
 		<fabric8.service.type>LoadBalancer</fabric8.service.type>
 		<fabric8.label.group>msa</fabric8.label.group>
 		<fabric8.iconRef>icons/java</fabric8.iconRef>
-		<fabric8.serviceAccount>ribbon</fabric8.serviceAccount>
 
+		<fabric8.env.AB_OFF>true</fabric8.env.AB_OFF>
 		<fabric8.env.AB_JOLOKIA_OFF>true</fabric8.env.AB_JOLOKIA_OFF>
 		<fabric8.env.GREETING_BACKEND_SERVICE_HOST>backend</fabric8.env.GREETING_BACKEND_SERVICE_HOST>
 		<fabric8.env.GREETING_BACKEND_SERVICE_PORT>80</fabric8.env.GREETING_BACKEND_SERVICE_PORT>
