@@ -18,12 +18,14 @@
 		<fabric8.version>2.2.98</fabric8.version>
 		<hystrix.version>1.5.1</hystrix.version>
 		<kubeflix.version>1.0.15</kubeflix.version>
+		<ribbon.version>2.1.2</ribbon.version>
 
 		<!-- Docker -->
 		<docker.maven.plugin.version>0.14.2</docker.maven.plugin.version>
 		<docker.from>fabric8/java-jboss-openjdk8-jdk:1.0.10</docker.from>
 		<docker.image>fabric8/${project.artifactId}:${project.version}</docker.image>
 		<docker.port.container.http>8080</docker.port.container.http>
+		<docker.port.container.jolokia>8778</docker.port.container.jolokia>
 
 		<!-- Fabric8/Kubernetes/OpenShift -->
 		<fabric8.readinessProbe.httpGet.path>/api/hola</fabric8.readinessProbe.httpGet.path>
@@ -81,6 +83,25 @@
 		<dependency>
 			<groupId>org.wildfly.swarm</groupId>
 			<artifactId>monitor</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.wildfly.swarm</groupId>
+			<artifactId>ribbon</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.fabric8.kubeflix</groupId>
+			<artifactId>ribbon-discovery</artifactId>
+			<version>${kubeflix.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.netflix.ribbon</groupId>
+			<artifactId>ribbon-core</artifactId>
+			<version>${ribbon.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.netflix.ribbon</groupId>
+			<artifactId>ribbon-loadbalancer</artifactId>
+			<version>${ribbon.version}</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
